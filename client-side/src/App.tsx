@@ -1,17 +1,27 @@
+import { useState } from "react"
 import Button from "./Components/Button"
 import Card from "./Components/Card"
 import CreateContentModel from "./Components/CreateContentModel"
 import { PlusIcon } from "./icons/plusIcon"
 import { ShareIcon } from "./icons/shareIcon"
+import { Sidebar } from "./Components/Sidebar"
 
 
 function App() {
+  const[modalOpen,setModalOpen]=useState(true)
   return (
     <div className="p-4">
+      <div>
+        <CreateContentModel open={modalOpen} onClose={()=>{
+          setModalOpen(false)
+        }}/>
+      </div>
       <div className="flex justify-end gap-2">
 
         <Button variant="primary" text="Share brain" startIcon={<PlusIcon/>}   ></Button>
-        <Button variant="secondary" text="Add Content" startIcon={<ShareIcon/>}   />
+        <Button  variant="secondary" text="Add Content" startIcon={<ShareIcon/>}  onClick={()=>{
+          setModalOpen(true)
+        }} />
       </div>
       
       
@@ -20,8 +30,9 @@ function App() {
         <Card type="youtube" link="https://www.youtube.com/watch?v=LgoXqhuyaQo" title="bishwo"/>
       </div>
       <div>
-        <CreateContentModel open={true}/>
+        <Sidebar/>
       </div>
+      
     
   </div>  
   )

@@ -11,7 +11,9 @@ function CreateContentModel({open,onClose}) {
             <div className="flex flex-col justify-center ">
                 <span className="bg-white opacity-100 p-4 rounded">
                    
-                    <div className="flex justify-end" onClick={onClose}><CrossIcon/></div>
+                    <div className="flex justify-end cursor-pointer" onClick={onClose}>
+                            <CrossIcon/>
+                    </div>
                     <div>
                         <Input place="Title"/>
                         <Input place="Links"/>
