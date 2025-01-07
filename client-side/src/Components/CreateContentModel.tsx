@@ -2,7 +2,10 @@
 import CrossIcon from "../icons/CrossIcon"
 import Button from "./Button"
 
-function CreateContentModel({open,onClose}) {
+function CreateContentModel({open,onClose}:{
+    open:any;
+    onClose:any
+}) {
     
 
   return (
@@ -15,14 +18,14 @@ function CreateContentModel({open,onClose}) {
                             <CrossIcon/>
                     </div>
                     <div>
-                        <Input place="Title"/>
-                        <Input place="Links"/>
+                        <Input place="Title" onChange={()=>{}}/>
+                        <Input place="Links" onChange={()=>{}}/>
                         
 
                         
                     </div>
                     <div className="flex justify-center items-center">
-                        <Button variant="primary" text="submit"/>
+                        <Button variant="primary" text="submit" />
                     </div>
                     
 
