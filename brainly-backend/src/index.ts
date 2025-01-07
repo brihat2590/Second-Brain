@@ -9,7 +9,11 @@ import  {Middleware}  from "./middleware"
 import {z} from "zod"
 import mongoose from "mongoose"
 import bcrypt from "bcrypt"
-import { Random } from "./utils"
+import cors from "cors"
+
+app.use(cors())
+
+
 app.use(express.json())
 
 async function Main(){
