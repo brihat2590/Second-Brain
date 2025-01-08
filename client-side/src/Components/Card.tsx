@@ -8,7 +8,7 @@ interface CardProps{
 export default function Card({title,link,type}:CardProps){
     return(
         <div className="bg-white  shadow-md border 
-        border-slate-200 max-w-72 rounded-md  min-h-48  min-w-72">
+        border-slate-200 max-w-72 rounded-md h-25  min-w-72 ">
             <div className="flex justify-between items-center">
                 <div className="flex text-lg font-semibold">
                     <ShareIcon/>
