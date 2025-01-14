@@ -13,7 +13,7 @@ const variantClasses={
 };
 const defaultClass=" px-2 py-2 rounded-md  flex items-centre justify-centre ";
 
-function Button({variant,text,startIcon,onClick}:ButtonProps) {
+export default function Button({variant,text,startIcon,onClick}:ButtonProps) {
     
   return (
     <button className={variantClasses[variant]+ "" + defaultClass} onClick={onClick}>
@@ -23,5 +23,3 @@ function Button({variant,text,startIcon,onClick}:ButtonProps) {
     </button>
   )
 }
-
-export default Button

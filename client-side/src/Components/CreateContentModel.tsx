@@ -2,7 +2,8 @@
 import axios from "axios";
 import CrossIcon from "../icons/CrossIcon"
 import Button from "./Button"
-import { Ref, useRef, useState } from "react";
+import {  useRef, useState } from "react";
+import { Input } from "./Input";
 import { BACKEND_URL } from "../config/config";
 enum ContentType{
     Youtube="youtube",
@@ -51,8 +52,8 @@ function CreateContentModel({open,onClose}:{
                             <CrossIcon/>
                     </div>
                     <div>
-                        <Input place="Title" ref={titleRef} />
-                        <Input place="Links" ref={linkRef}/>
+                        <Input placeholder="Title" reference={titleRef} />
+                        <Input placeholder="Links" reference={linkRef}/>
 
                         
 
@@ -90,16 +91,4 @@ function CreateContentModel({open,onClose}:{
 export default CreateContentModel
 
 
-function Input({onChange,place}:{
-    onChange?:()=>void,
-    place:any,
-    ref:any
-},){
-    return(
-        <div>
-            <input type="text" className="px-4 py-2 border rounded m-2" onChange={onChange} placeholder={place}></input>
-            
 
-        </div>
-    )
-}

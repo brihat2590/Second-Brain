@@ -1,49 +1,34 @@
-import React from 'react';
+import { useRef } from 'react';
+import axios from 'axios';
+import { BACKEND_URL } from '../config/config';
+import Button from '../Components/Button';
+import { useNavigate } from 'react-router-dom';
+import { Input } from '../Components/Input';
 
 export default function SignIn() {
-  return (
-    <div className="bg-white h-screen flex items-center justify-center">
-      <div className="w-96 bg-white shadow-md rounded-lg p-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">Sign In</h1>
-        <form>
-          <div className="mb-4">
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-gray-600 mb-2"
-            >
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Enter your username"
-              required
-            />
+  const usernameRef = useRef<HTMLInputElement>();
+  const passwordRef = useRef<HTMLInputElement>();
+  const navigate = useNavigate();
+
+  async function signin() {
+      const username = usernameRef.current?.value;
+      console.log(usernameRef.current)
+      const password = passwordRef.current?.value;
+      const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
+          username,
+          password
+      })
+      const jwt = response.data.token;
+      localStorage.setItem("token", jwt);
+      navigate("/dashboard")
+  }
+  return <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
+      <div className="bg-white rounded-xl border min-w-48 p-8">
+          <Input reference={usernameRef} placeholder="Username" />
+          <Input reference={passwordRef} placeholder="Password" />
+          <div className="flex justify-center pt-4">
+              <Button onClick={signin}  variant="primary" text="Signin"  />
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-600 mb-2"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition-transform transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300"
-          >
-            Sign In
-          </button>
-        </form>
       </div>
-    </div>
-  );
+  </div>
 }
