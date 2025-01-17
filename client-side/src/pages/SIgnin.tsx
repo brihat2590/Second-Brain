@@ -22,13 +22,19 @@ export default function SignIn() {
       localStorage.setItem("token", jwt);
       navigate("/dashboard")
   }
-  return <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
-      <div className="bg-white rounded-xl border min-w-48 p-8">
-          <Input reference={usernameRef} placeholder="Username" />
-          <Input reference={passwordRef} placeholder="Password" />
-          <div className="flex justify-center pt-4">
-              <Button onClick={signin}  variant="primary" text="Signin"  />
-          </div>
-      </div>
-  </div>
+  return(
+    <div>
+        <h2 className='mt-12 flex justify-center items-center'>Welcome to the Sign in page</h2>
+        <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
+         
+         <div className="bg-white rounded-xl border min-w-48 p-8">
+             <Input reference={usernameRef} placeholder="Username" />
+             <Input reference={passwordRef} placeholder="Password" />
+             <div className="flex justify-center pt-4">
+                 <Button onClick={signin}  variant="primary" text="Signin"  />
+             </div>
+         </div>
+     </div>
+    </div>
+  )
 }

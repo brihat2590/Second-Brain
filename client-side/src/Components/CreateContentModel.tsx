@@ -11,6 +11,7 @@ enum ContentType{
 
 }
 
+
 function CreateContentModel({open,onClose}:{
     open:any;
     onClose:any
@@ -23,9 +24,10 @@ function CreateContentModel({open,onClose}:{
     async function addcontent(){
         const title=titleRef.current?.value;
         const link=linkRef.current?.value;
+        
         await axios.post(`${BACKEND_URL}/api/v1/content`,{
             link,
-            type,
+            type:type,
             title
         },{
             headers:{
@@ -35,6 +37,7 @@ function CreateContentModel({open,onClose}:{
     )
 
     }
+    
 
     
 
@@ -70,7 +73,7 @@ function CreateContentModel({open,onClose}:{
                     </div>
                     
                     <div className="flex justify-center items-center pt-5">
-                        <Button variant="primary" text="submit" onClick={addcontent} />
+                        <Button variant="primary" text="submit" onClick={()=>addcontent()} />
                     </div>
                     
 

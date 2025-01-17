@@ -8,24 +8,28 @@ import Docunments from "../icons/Docunments";
 
 
 
-export function Sidebar(){
-    return(
-        <div className="w-72 h-screen border-r bg-white fixed left-0 top-0 border-2 pl-6">
-            
-            <div className="flex text-2xl pl-5 pt-8">
-                <div className="pr-2 text-purple-800 "><BrainIcon/></div>
-                
-                <span className="font-semibold">Brainly</span>
-                </div>
-            <div className="pt-8 pl-4">
-                <SidebarItem text="Twitter" icon={<TwitterIcon/>}/>
-                <SidebarItem text="Youtube" icon={<YoutubeIcon/>}/>
-                <SidebarItem text="Github" icon={<Githubicon/>}/>
-                <SidebarItem text="videos" icon={<VideoIcon/>}/>
-                <SidebarItem text="docunments" icon={<Docunments/>}/>
-                
-            </div>
-
+export function Sidebar() {
+    return (
+      <div className="w-72 h-screen bg-white border-r fixed  shadow-lg pl-7">
+        {/* Header Section */}
+        <div className="flex items-center text-3xl font-bold pl-6 pt-8 space-x-2">
+          <div className="">
+            <BrainIcon />
+          </div>
+          <span>Brainly</span>
         </div>
-    )
-}
+  
+        {/* Menu Items */}
+        <div className="pt-10">
+          <SidebarItem text="Twitter" icon={<TwitterIcon />} />
+          <SidebarItem text="YouTube" icon={<YoutubeIcon />} />
+          <SidebarItem text="GitHub" icon={<Githubicon />} />
+          <SidebarItem text="Videos" icon={<VideoIcon />} />
+          <SidebarItem text="Documents" icon={<Docunments />} />
+        </div>
+      </div>
+    );
+  }
+  
+ 
+  

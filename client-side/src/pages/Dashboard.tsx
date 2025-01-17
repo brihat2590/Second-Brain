@@ -5,10 +5,16 @@ import CreateContentModel from "../Components/CreateContentModel"
 import { PlusIcon } from "../icons/plusIcon"
 import { ShareIcon } from "../icons/shareIcon"
 import { Sidebar } from "../Components/Sidebar"
+import useContent from "../hooks/useContent"
+
 
 
 function Dashboard() {
   const[modalOpen,setModalOpen]=useState(false)
+  const content=useContent();
+  //getting all the links from the backend
+
+
   return (
     <div>
       <Sidebar/>
@@ -28,9 +34,11 @@ function Dashboard() {
       </div>
       
       
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
+        
+        {content.map(({type,link,title})=><Card type={type} link={link} title={title}/>)}
         <Card type="twitter" link="https://x.com/kirat_tw/status/1633685473821425666" title="First tweet"/>
-        <Card type="youtube" link="https://www.youtube.com/watch?v=LgoXqhuyaQo" title="bishwo"/>
+        
       </div>
       
       
