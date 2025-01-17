@@ -37,7 +37,7 @@ function Dashboard() {
       <div className="flex gap-4 flex-wrap">
         
         {content.map(({type,link,title})=><Card type={type} link={link} title={title}/>)}
-        <Card type="twitter" link="https://x.com/kirat_tw/status/1633685473821425666" title="First tweet"/>
+        {/* <Card type="twitter" link="https://x.com/kirat_tw/status/1633685473821425666" title="First tweet"/> */}
         
       </div>
       
