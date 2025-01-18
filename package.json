@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@tabler/icons-react": "^3.28.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.18.1",
+    "lucide-react": "^0.473.0",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7"
+  }
+}

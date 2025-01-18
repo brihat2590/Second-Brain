@@ -13,10 +13,10 @@ export function Sidebar() {
       <div className="w-72 h-screen bg-white border-r fixed  shadow-lg pl-7">
         {/* Header Section */}
         <div className="flex items-center text-3xl font-bold pl-6 pt-8 space-x-2">
-          <div className="">
+          <div className=" text-purple-700">
             <BrainIcon />
           </div>
-          <span>Brainly</span>
+          <span className="text-2xl font-mono">Brainly</span>
         </div>
   
         {/* Menu Items */}
